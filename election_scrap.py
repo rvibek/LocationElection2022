@@ -18,7 +18,7 @@ import time
 states = {1: 'प्रदेश १', 2: 'मधेश प्रदेश', 3: 'बागमती प्रदेश', 4: 'गण्डकी प्रदेश', 5: 'लुम्बिनी प्रदेश', 6: 'कर्णाली प्रदेश', 7: 'सुदूरपश्चिम प्रदेश'}
 
 # Load the districts table/dataframe and there are two rows with NULL value which is cleaned 
-districts = pd.read_json('https://raw.githubusercontent.com/rvibek/LocalElection2022/main/districts.json')
+districts = pd.read_json('https://raw.githubusercontent.com/rvibek/LocationElection2022/master/assets/districts.json')
 districts.dropna(inplace=True)
 
 # Join the districts table with column name states by fetching from states table
@@ -27,7 +27,7 @@ districts['states'] = districts.parentId.map(states)
 
 
 # localbodies consists of all the electorals with 'id' which will be used later in the loop to fetch the data
-localbodies = pd.read_json('https://raw.githubusercontent.com/rvibek/LocalElection2022/main/localbodies.json')
+localbodies = pd.read_json('https://raw.githubusercontent.com/rvibek/LocationElection2022/master/assets/localbodies.json')
 
 
 # this steps builds a flatfile with districtname, districtid, statename to extend the electoralref table
